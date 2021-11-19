@@ -27,7 +27,7 @@ class MountainCarRL:
         self.env = wrappers.RecordEpisodeStatistics(self.env)
         self.env = wrappers.RecordVideo(self.env, './videos/'+ str(currentDate.year) + str(currentDate.month) + str(currentDate.day) + '/')
 
-    ## erzeugt die qTable 
+    ## erzeugt die qTable (20 x 20 x 3)
     def init_qtable(self):
         self.DISCRETE_OS_SIZE = [20] * len(self.env.observation_space.high)
         self.discrete_os_win_size = (self.env.observation_space.high - self.env.observation_space.low)/self.DISCRETE_OS_SIZE
@@ -113,7 +113,7 @@ class MountainCarRL:
 
 
 ### Ausführung des qLearning Algorithmus für MountainCar
-mountainCar = MountainCarRL(10)
+mountainCar = MountainCarRL(25000)
 
 mountainCar.print_qTable("initQTable")
 mountainCar.start_learning()
