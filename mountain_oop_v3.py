@@ -75,7 +75,7 @@ class MountainCarRL:
                 new_state, reward, done, _ = self.env.step(action)
                 ## der State ist dann ein Tupel der Form: (7, 10)
                 new_discrete_state = self.get_discrete_state(new_state)
-                
+
                 if episode % self.SHOW_EVERY == 0:
                     self.env.render()
                 # If simulation did not end yet after last step - update Q table
@@ -113,7 +113,7 @@ class MountainCarRL:
 
 
 ### Ausführung des qLearning Algorithmus für MountainCar
-mountainCar = MountainCarRL(10)
+mountainCar = MountainCarRL(25000)
 
 mountainCar.print_qTable("initQTable")
 mountainCar.start_learning()
